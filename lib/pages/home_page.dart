@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Form(
+            key: key,
             child: ListView(
               children: [
                 TextField(
@@ -45,6 +46,9 @@ class _HomePageState extends State<HomePage> {
                   decoration: InputDecoration(
                     hintText: "Yoshingiz kiriting",
                   ),
+                  onChanged: (value) {
+                    key.currentState?.validate();
+                  },
                   validator: (value) {
                     if (int.tryParse(value ?? "") == null) {
                       return "Yoshingizni kiriting";
