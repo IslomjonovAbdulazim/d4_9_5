@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final nameController = TextEditingController();
+  final key = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,9 @@ class _HomePageState extends State<HomePage> {
                 TextField(
                   controller: nameController,
                   autocorrect: false,
+                  onChanged: (value) {
+                    setState(() {});
+                  },
                   decoration: InputDecoration(
                     hintText: "Ismingizni Kiriting",
                   ),
@@ -41,13 +45,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
