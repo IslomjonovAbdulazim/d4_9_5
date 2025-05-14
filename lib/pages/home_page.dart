@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final nameController = TextEditingController();
   final key = GlobalKey<FormState>();
+  int birthYear = DateTime.now().year;
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +54,11 @@ class _HomePageState extends State<HomePage> {
                     if (int.tryParse(value ?? "") == null) {
                       return "Yoshingizni kiriting";
                     }
+                    birthYear = 2025 - int.parse(value!);
+                    setState(() {});
                   },
                 ),
-                Text("Siz _ yilda tugilsansiz"),
+                Text("Siz $birthYear-yilda tugilsansiz"),
               ],
             ),
           ),
@@ -64,4 +67,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
