@@ -29,12 +29,15 @@ class _AgePageState extends State<AgePage> {
     final diff = now.difference(selectedTime!);
     years = diff.inDays ~/ 365;
     months = diff.inDays ~/ 30;
+    weeks = diff.inDays ~/ 7;
     days = diff.inDays;
     hours = diff.inHours;
-
+    minutes = diff.inMinutes;
+    seconds = diff.inSeconds;
+    milliseconds = diff.inMilliseconds;
+    microseconds = diff.inMicroseconds;
+    setState(() {});
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +63,7 @@ class _AgePageState extends State<AgePage> {
                       formattedDate = DateFormat.yMMMd().format(selectedTime!);
                     }
                     setState(() {});
+                    calculate();
                   },
                   child: Text("Selected Date: $formattedDate"),
                 ),
@@ -73,6 +77,15 @@ class _AgePageState extends State<AgePage> {
                   ],
                 ),
                 SizedBox(height: 40),
+                Text("Years : $years"),
+                Text("Months: $months"),
+                Text("Weeks: $weeks"),
+                Text("Days: $days"),
+                Text("Hours: ${NumberFormat("#,###").format(hours)}"),
+                Text("Minutes: ${NumberFormat("#,###").format(minutes)}"),
+                Text("Seconds: ${NumberFormat("#,###").format(seconds)}"),
+                Text("Milliseconds: ${NumberFormat("#,###").format(milliseconds)}"),
+                Text("Microseconds: ${NumberFormat("#,###").format(microseconds)}"),
               ],
             ),
           ),
