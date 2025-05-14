@@ -38,8 +38,20 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text("Sizni Ismingiz: ${nameController.text}"),
                 SizedBox(height: 10),
-                Divider(),
+                Divider(color: Colors.red),
                 SizedBox(height: 10),
+                TextFormField(
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    hintText: "Yoshingiz kiriting",
+                  ),
+                  validator: (value) {
+                    if (int.tryParse(value ?? "") == null) {
+                      return "Yoshingizni kiriting";
+                    }
+                  },
+                ),
+                Text("Siz _ yilda tugilsansiz"),
               ],
             ),
           ),
@@ -48,3 +60,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
